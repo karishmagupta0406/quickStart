@@ -18,7 +18,7 @@ import {ToastrService} from '../common/toastr.service'
 export class EventsListComponent {
   events: any[]
   constructor (private eventService : EventService, private toastr:ToastrService){
-    this.events = this.eventService.getEvent()
+    this.events = this.eventService.getEvents()
   }
 
   handleThumbnailClick(eventName){
