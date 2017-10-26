@@ -1,10 +1,10 @@
 import { Component } from '@angular/core'
-import { Router }  from '@angular/router' 
+import { Router } from '@angular/router'
 import { EventService } from './shared/index'
 
 @Component({
- templateUrl: 'app/events/create-event.component.html',
- styles: [`
+    templateUrl: 'app/events/create-event.component.html',
+    styles: [`
  em { float: right; color: #E05C65; padding-left: 10px;} 
  .error input { background-color:#E3C3C5;}
  .error ::webkit-input-placeholder {color:#999;}
@@ -14,18 +14,18 @@ import { EventService } from './shared/index'
  `]
 })
 
-export class CreateEventComponent{
+export class CreateEventComponent {
     isDirty: boolean = true
-    constructor(private router: Router, private eventService: EventService){
+    constructor(private router: Router, private eventService: EventService) {
 
     }
-   cancel(){
-       this.router.navigate(['/events'])
-   }
-   saveEvent(formValues){
-       console.log(formValues)
-       this.eventService.saveEvent(formValues)
-       this.isDirty = false
-       this.router.navigate(['/events'])
-   }
+    cancel() {
+        this.router.navigate(['/events'])
+    }
+    saveEvent(formValues) {
+        console.log(formValues)
+        this.eventService.saveEvent(formValues)
+        this.isDirty = false
+        this.router.navigate(['/events'])
+    }
 }

@@ -6,5 +6,5 @@ import { ISession } from '../shared/Index'
 })
 
 export class SessionListComponent{
-    @Input() session:ISession[]
+    @Input() sessions :ISession[]
 }
