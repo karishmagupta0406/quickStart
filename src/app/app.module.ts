@@ -5,8 +5,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 
 import { EventsAppComponent } from './events-app.component'
 import { NavBarComponent } from './nav/navbar.component'
-import { ToastrService } from './common/toastr.service'
-import { CollpasibleWellComponent } from './common/collapsible-well.component'
+import { 
+  JQ_TOKEN, 
+  ToastrService, 
+  CollpasibleWellComponent, 
+  SimpleModalComponent,
+  ModalTriggerDirective
+} from './common/index'
 import { appRoutes } from './routes'
 import { Error404Component } from './errors/404.component'
 import { AuthService } from './user/auth.service'
@@ -21,8 +26,10 @@ EventRouteActivator,
 EventListResolver,
 CreateSessionComponent,
 SessionListComponent,
-DurationPipe
+DurationPipe,
 } from './events/index'
+
+declare let jQuery : Object
 
 @NgModule({
   imports: [
@@ -42,7 +49,9 @@ DurationPipe
     CreateSessionComponent,
     SessionListComponent,
     CollpasibleWellComponent,
-    DurationPipe
+    DurationPipe,
+    SimpleModalComponent,
+    ModalTriggerDirective
   ],
   providers: [
     EventService,
@@ -53,6 +62,10 @@ DurationPipe
     {
       provide: 'canDeactivateCreateEvent',
       useValue: checkDirtyState
+    },
+    {
+      provide: JQ_TOKEN,
+      useValue: jQuery
     }
   ],
   bootstrap: [EventsAppComponent]
