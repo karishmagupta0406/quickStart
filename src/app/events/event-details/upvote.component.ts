@@ -21,10 +21,8 @@ import { Component, EventEmitter, Input, Output} from '@angular/core'
 export class UpvoteComponent{
     @Input() count: string
     @Input() voted: boolean
-    @Output() vote: new EventEmitter()
-
-    onclick(){
-
-        this.vote.emit({})
+    @Output() vote = new EventEmitter()
+    onClick(){
+        this.vote.emit({});
     }
 }
